@@ -1,69 +1,292 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { BUSINESS } from "@/lib/constants";
+import { REVIEWS } from "@/data/reviews";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { CredentialBadges } from "@/components/sections/CredentialBadges";
+import { CTASection } from "@/components/sections/CTASection";
+import { ServiceAreaGrid } from "@/components/sections/ServiceAreaGrid";
+import { ReviewCard } from "@/components/cards/ReviewCard";
+import { ServiceCard } from "@/components/cards/ServiceCard";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: `Garage Door Repair Valley Stream NY 11580 | One Stop Garage Door | ${BUSINESS.phone}`,
+  description:
+    "Same-day garage door repair in Valley Stream NY 11580 11581. One Stop Garage Door & Opener serves Five Towns Nassau County. Springs, cables, openers. Free estimate. Call (516) 612-6706.",
+  alternates: { canonical: BUSINESS.baseUrl + "/" },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "One Stop Garage Door & Opener",
+  "@id": `${BUSINESS.baseUrl}/#business`,
+  telephone: BUSINESS.phone,
+  url: BUSINESS.baseUrl,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.city,
+    addressRegion: BUSINESS.address.state,
+    postalCode: BUSINESS.address.zip,
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: BUSINESS.geo.lat,
+    longitude: BUSINESS.geo.lng,
+  },
+  areaServed: [
+    { "@type": "City", name: "Valley Stream", addressRegion: "NY", postalCode: "11580" },
+    { "@type": "City", name: "Woodmere", addressRegion: "NY", postalCode: "11598" },
+    { "@type": "City", name: "Hewlett", addressRegion: "NY", postalCode: "11557" },
+    { "@type": "City", name: "Cedarhurst", addressRegion: "NY", postalCode: "11516" },
+    { "@type": "City", name: "Lawrence", addressRegion: "NY", postalCode: "11559" },
+    { "@type": "City", name: "Inwood", addressRegion: "NY", postalCode: "11096" },
+  ],
+  priceRange: "$$",
+  openingHours: ["Mo-Su 00:00-23:59"],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "187",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${BUSINESS.baseUrl}/` },
+    { "@type": "ListItem", position: 2, name: "Repair", item: `${BUSINESS.baseUrl}/repair/` },
+    { "@type": "ListItem", position: 3, name: "Openers", item: `${BUSINESS.baseUrl}/garage-door-opener/` },
+    { "@type": "ListItem", position: 4, name: "Installation", item: `${BUSINESS.baseUrl}/installation/` },
+    { "@type": "ListItem", position: 5, name: "FAQ", item: `${BUSINESS.baseUrl}/faq/` },
+  ],
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <JsonLd data={localBusinessSchema} />
+      <JsonLd data={breadcrumbSchema} />
+
+      {/* Hero */}
+      <section className="relative min-h-[80vh] flex items-center bg-brand-dark overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: "url('/images/hero-garage-door.jpg')" }}
+          aria-hidden="true"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-amber-400 text-lg tracking-widest">★★★★★</span>
+              <span className="text-white/70 text-xs font-semibold">
+                5.0 · Valley Stream NY · Nassau County
+              </span>
+            </div>
+
+            <h1 className="font-display font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase leading-[1.05] mb-3">
+              24/7 Same-Day
+              <br />
+              Garage Door Repair
+              <span className="block text-brand-red">Valley Stream, NY</span>
+            </h1>
+            <div className="w-12 h-1 bg-brand-red my-4" />
+            <p className="text-white/80 text-sm sm:text-base max-w-lg mb-7 leading-relaxed">
+              One Stop Garage Door &amp; Opener serves Valley Stream NY 11580, 11581 and all Five Towns
+              communities. Same-day torsion spring repair, off-track door correction, cable drum replacement,
+              and LiftMaster opener installation. Free written estimate — 100% satisfaction guaranteed.
+            </p>
+            <Link
+              href={BUSINESS.phoneHref}
+              className="inline-flex items-center gap-3 bg-brand-red text-white font-display font-bold uppercase text-base sm:text-lg tracking-wide px-8 py-5 rounded hover:bg-brand-red-dark transition-colors shadow-xl shadow-brand-red/30"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              📞 CALL {BUSINESS.phone} — FREE ESTIMATE
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <TrustBar />
+      <CredentialBadges />
+
+      {/* About / Services */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="eyebrow">Valley Stream &amp; Five Towns — Nassau County</p>
+          <h2 className="font-display font-black text-2xl sm:text-3xl text-brand-black uppercase tracking-wide leading-tight mb-1">
+            One Stop Garage Door &amp; Opener —<br className="hidden sm:block" />
+            Valley Stream&apos;s Local Expert Since 2009
+          </h2>
+          <div className="brand-divider" />
+
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 max-w-4xl">
+            Valley Stream sits at the heart of Nassau County&apos;s South Shore — a dense, established suburb where
+            postwar colonial, cape cod, and split-level homes built in the 1940s, 1950s, and 1960s line the
+            residential streets from <strong>W Hawthorne Avenue</strong> and <strong>Fletcher Avenue</strong> through
+            to the neighborhoods bordering the <strong>Belt Parkway</strong>. These homes were built in an era when the
+            attached garage was the primary entrance to the house, and in 2026, that remains true — which means when the
+            garage door fails, the impact is immediate and the need for same-day service is real.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4 max-w-4xl">
+            Valley Stream&apos;s proximity to <strong>Reynolds Channel</strong> and the broader South Shore waterway
+            system means salt air is a genuine factor for hardware longevity. Standard galvanized steel lifting cables
+            corrode faster here than inland Nassau County communities, and spring coil oxidation accelerates in
+            properties closest to the water. One Stop Garage Door &amp; Opener carries{" "}
+            <strong>galvanized steel cables</strong> as standard for all Valley Stream installations, and{" "}
+            <strong>stainless steel cables</strong> for properties in the waterfront sections of Inwood and Lawrence
+            where marine air exposure is highest.
+          </p>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8 max-w-4xl">
+            As Nassau County&apos;s <strong>Five Towns garage door specialist</strong>, we serve Valley Stream,
+            Woodmere, Hewlett, Cedarhurst, Lawrence, and Inwood with the same same-day response and free written
+            estimate on every call. A real technician answers at{" "}
+            <Link href={BUSINESS.phoneHref} className="font-bold text-brand-black hover:text-brand-red">
+              (516) 612-6706
+            </Link>{" "}
+            — not a call center. We dispatch within 2–4 hours, call 30 minutes before arrival, complete a full system
+            inspection, and leave only after a safety test confirms everything is working.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ServiceCard
+              icon="🔴"
+              name="Emergency Repair"
+              description="Same-day torsion spring repair, broken overhead cable, off-track door correction throughout Valley Stream & Five Towns."
+              href="/repair/"
+              linkLabel="View Repair"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <ServiceCard
+              icon="⚙️"
+              name="Opener Service"
+              description="LiftMaster belt drive, gear & sprocket kit repair, MyQ smart WiFi — Valley Stream NY 11580."
+              href="/garage-door-opener/"
+              linkLabel="View Openers"
+            />
+            <ServiceCard
+              icon="🏠"
+              name="New Door Install"
+              description="Insulated carriage house, steel, glass & aluminum doors. Free in-home estimate. $250 off."
+              href="/installation/"
+              linkLabel="View Installation"
+            />
+            <ServiceCard
+              icon="💰"
+              name="FAQ & Coupons"
+              description="5 active discount codes. Save up to $250 on your next Valley Stream service call."
+              href="/faq/"
+              linkLabel="View Coupons"
+            />
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <ServiceAreaGrid />
+
+      {/* Reviews */}
+      <section className="bg-brand-light py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <p className="eyebrow">What Our Customers Say</p>
+          <h2 className="font-display font-black text-2xl sm:text-3xl text-brand-black uppercase tracking-wide mb-1">
+            5-Star Reviews — Valley Stream &amp; Five Towns
+          </h2>
+          <div className="brand-divider" />
+          <p className="text-gray-600 text-sm sm:text-base max-w-xl mb-8 leading-relaxed">
+            Real customers, real repairs, real results. One Stop Garage Door &amp; Opener has been serving
+            Valley Stream and Five Towns Nassau County families since 2009.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+            {REVIEWS.map((review, i) => (
+              <ReviewCard key={i} review={review} />
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href={BUSINESS.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-brand-black text-brand-gold font-display font-bold uppercase text-sm tracking-wide px-7 py-3.5 rounded border border-brand-gold hover:bg-brand-gold hover:text-white transition-colors"
+            >
+              ⭐ Read All Reviews on Google
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Map */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+              <p className="eyebrow">Find Us</p>
+              <h2 className="font-display font-black text-2xl sm:text-3xl text-brand-black uppercase tracking-wide mb-2">
+                Valley Stream &amp; Five Towns Service Map
+              </h2>
+              <div className="brand-divider" />
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                One Stop Garage Door &amp; Opener serves Valley Stream NY 11580, 11581 and all Five Towns
+                communities throughout Nassau County&apos;s South Shore. We dispatch from Valley Stream and reach
+                most Five Towns addresses within 2–4 hours.
+              </p>
+              <div className="bg-brand-light rounded p-5 mb-5 space-y-2.5 text-sm">
+                <div>
+                  <strong className="text-brand-black">📍 Valley Stream</strong> — W Hawthorne Ave, Valley Stream NY 11580
+                </div>
+                <div>
+                  <strong className="text-brand-black">📞 Phone</strong> —{" "}
+                  <Link href={BUSINESS.phoneHref} className="text-brand-red hover:underline font-semibold">
+                    (516) 612-6706
+                  </Link>
+                </div>
+                <div>
+                  <strong className="text-brand-black">🕐 Hours</strong> — 24/7 including evenings &amp; weekends
+                </div>
+                <div>
+                  <strong className="text-brand-black">🛡 Warranty</strong> — Written warranty on every repair
+                </div>
+              </div>
+              <Link
+                href={BUSINESS.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center bg-brand-black text-brand-gold font-display font-bold text-sm uppercase tracking-wide px-5 py-3.5 rounded border border-brand-gold hover:bg-brand-gold hover:text-white transition-colors mb-3"
+              >
+                ★★★★★ Read Our 5-Star Reviews on Google
+              </Link>
+              <Link
+                href={BUSINESS.phoneHref}
+                className="block text-center bg-brand-red text-white font-display font-bold uppercase text-sm tracking-wide px-5 py-3.5 rounded hover:bg-brand-red-dark transition-colors"
+              >
+                📞 CALL (516) 612-6706
+              </Link>
+            </div>
+            <div>
+              <div className="rounded border-2 border-brand-red shadow-lg overflow-hidden">
+                <iframe
+                  src={BUSINESS.googleMapsEmbed}
+                  width="100%"
+                  height="380"
+                  style={{ border: 0, display: "block" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="One Stop Garage Door Valley Stream NY Five Towns Service Area"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        heading="Need Garage Door Repair in Valley Stream Today?"
+        subtext="One Stop Garage Door & Opener — Five Towns Nassau County — Free Written Estimate"
+      />
+    </>
   );
 }
