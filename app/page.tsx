@@ -75,12 +75,21 @@ export default function HomePage() {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Hero */}
-      <section className="relative min-h-[80vh] flex items-center bg-brand-dark overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('/images/hero-garage-door.jpg')" }}
-          aria-hidden="true"
-        />
+      <section
+        className="relative min-h-[80vh] flex items-center overflow-hidden"
+        style={{
+          backgroundImage: [
+            "linear-gradient(to bottom, rgba(10,10,10,0.60) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.85) 100%)",
+            "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.045) 79px, rgba(255,255,255,0.045) 80px)",
+            "repeating-linear-gradient(90deg, transparent, transparent 239px, rgba(255,255,255,0.025) 239px, rgba(255,255,255,0.025) 240px)",
+          ].join(", "),
+          backgroundSize: "auto, 240px 80px, 240px 80px",
+          backgroundRepeat: "repeat",
+          backgroundColor: "#111111",
+        }}
+      >
+        {/* Red accent bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-red" />
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-4">
