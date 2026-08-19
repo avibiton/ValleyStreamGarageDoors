@@ -118,7 +118,7 @@ export default function FAQPage() {
         h1="Garage Door Coupons & FAQ — Valley Stream & Five Towns, NY"
         subtitle="5 active discount codes for Valley Stream NY 11580 and all Five Towns. Save 10% on springs, $250 off a new door, $99 off a new opener, $20 off tune-up, and free service call with any repair."
         ctaLabel={`Call ${BUSINESS.phone} to Redeem`}
-        imageSrc="https://images.unsplash.com/photo-1762568742298-bdb91e2cbdd9?auto=format&fit=crop&w=1920&q=80"
+        imageSrc="/images/hero-faq.jpg"
       />
 
       <TrustBar

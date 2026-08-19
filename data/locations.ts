@@ -46,7 +46,7 @@ export const LOCATIONS: LocationData[] = [
     h1: "Garage Door Repair in Cedarhurst, NY — Same Day",
     heroSubtitle:
       "One Stop Garage Door & Opener provides same-day torsion spring repair, off-track correction, cable drum replacement, and LiftMaster opener installation throughout Cedarhurst NY (11516) and all Five Towns Nassau County.",
-    heroImage: "https://images.unsplash.com/photo-1766804627085-66e8c60a9208?auto=format&fit=crop&w=1920&q=80",
+    heroImage: "/images/hero-cedarhurst.jpg",
     trustItems: [
       "Same-Day in Cedarhurst",
       "Real Technician Answers",
@@ -152,7 +152,7 @@ export const LOCATIONS: LocationData[] = [
     h1: "Garage Door Repair in Hewlett, NY — Same Day",
     heroSubtitle:
       "One Stop Garage Door & Opener provides same-day torsion spring repair, off-track correction, cable drum replacement, and LiftMaster opener installation throughout Hewlett NY (11557) and all Five Towns Nassau County.",
-    heroImage: "https://images.unsplash.com/photo-1761494657203-c8e02a1ac818?auto=format&fit=crop&w=1920&q=80",
+    heroImage: "/images/hero-hewlett.jpg",
     trustItems: [
       "Same-Day in Hewlett",
       "Real Technician Answers",
@@ -253,7 +253,7 @@ export const LOCATIONS: LocationData[] = [
     h1: "Garage Door Repair in Inwood, NY — Same Day",
     heroSubtitle:
       "One Stop Garage Door & Opener provides same-day torsion spring repair, off-track correction, cable drum replacement, and LiftMaster opener installation throughout Inwood NY (11096) and all Five Towns Nassau County.",
-    heroImage: "https://images.unsplash.com/photo-1778226817693-7f42d8f27eb6?auto=format&fit=crop&w=1920&q=80",
+    heroImage: "/images/hero-inwood.jpg",
     trustItems: [
       "Same-Day in Inwood",
       "Real Technician Answers",
@@ -354,7 +354,7 @@ export const LOCATIONS: LocationData[] = [
     h1: "Garage Door Repair in Lawrence, NY — Same Day",
     heroSubtitle:
       "One Stop Garage Door & Opener provides same-day torsion spring repair, off-track correction, cable drum replacement, and LiftMaster opener installation throughout Lawrence NY (11559) and all Five Towns Nassau County.",
-    heroImage: "https://images.unsplash.com/photo-1783197660358-cebe37122143?auto=format&fit=crop&w=1920&q=80",
+    heroImage: "/images/hero-lawrence.jpg",
     trustItems: [
       "Same-Day in Lawrence",
       "Real Technician Answers",

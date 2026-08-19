@@ -122,7 +122,7 @@ export default function OpenerPage() {
         h1="Garage Door Opener Repair & Installation in Valley Stream, NY"
         subtitle="LiftMaster belt drive, Genie smart opener, MyQ WiFi setup, gear & sprocket kit repair, and battery backup installation throughout Valley Stream NY 11580 and all Five Towns."
         ctaLabel={`Call ${BUSINESS.phone} — $99 Off New Opener`}
-        imageSrc="https://images.unsplash.com/photo-1519558260268-cde7e03a0152?auto=format&fit=crop&w=1920&q=80"
+        imageSrc="/images/hero-opener.jpg"
       />
 
       <TrustBar

@@ -80,8 +80,7 @@ export default function HomePage() {
         style={{
           backgroundImage: [
             "linear-gradient(to bottom, rgba(10,10,10,0.60) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.85) 100%)",
-            "linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.20) 50%, rgba(10,10,10,0.80) 100%)",
-            "url('https://images.unsplash.com/photo-1770756051811-1612ac8bedfa?auto=format&fit=crop&w=1920&q=80')",
+            "url('/images/hero-home.jpg')",
           ].join(", "),
           backgroundSize: "auto, cover",
           backgroundPosition: "center, center",

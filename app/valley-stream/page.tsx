@@ -126,7 +126,7 @@ export default function ValleyStreamPage() {
         badge="Same-Day Service in Valley Stream"
         h1="Garage Door Repair in Valley Stream, NY — Same Day"
         subtitle="One Stop Garage Door & Opener provides same-day torsion spring repair, off-track correction, cable drum replacement, and LiftMaster opener installation throughout Valley Stream NY (11580, 11581) and all Five Towns Nassau County."
-        imageSrc="https://images.unsplash.com/photo-1768941124460-6fa7161715ff?auto=format&fit=crop&w=1920&q=80"
+        imageSrc="/images/hero-valley-stream.jpg"
       />
 
       <TrustBar

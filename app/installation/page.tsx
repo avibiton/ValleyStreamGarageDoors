@@ -120,7 +120,7 @@ export default function InstallationPage() {
         h1="Garage Door Installation in Valley Stream, NY — $250 Off"
         subtitle="Clopay, Amarr & Wayne Dalton insulated steel, carriage house, and glass & aluminum garage door installation throughout Valley Stream NY 11580 and all Five Towns. Free in-home estimate."
         ctaLabel={`Call ${BUSINESS.phone} — $250 Off New Door`}
-        imageSrc="https://images.unsplash.com/photo-1783125127341-81112b795c23?w=1920&q=80&auto=format&fit=crop"
+        imageSrc="/images/hero-installation.jpg"
       />
 
       <TrustBar

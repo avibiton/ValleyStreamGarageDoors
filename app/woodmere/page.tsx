@@ -127,7 +127,7 @@ export default function WoodmerePage() {
         badge="Same-Day Service in Woodmere"
         h1="Garage Door Repair in Woodmere, NY — Same Day"
         subtitle="One Stop Garage Door & Opener serves Woodmere NY 11598 with same-day spring repair, cable replacement, off-track correction, and LiftMaster opener installation. Free written estimate. Real technician. Written warranty."
-        imageSrc="https://images.unsplash.com/photo-1775430766327-ca7d9f93f563?auto=format&fit=crop&w=1920&q=80"
+        imageSrc="/images/hero-woodmere.jpg"
       />
 
       <TrustBar
