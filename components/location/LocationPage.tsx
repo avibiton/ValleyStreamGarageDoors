@@ -31,6 +31,7 @@ export function LocationPage({ location }: LocationPageProps) {
         badge={`Same-Day Service in ${location.city}`}
         h1={location.h1}
         subtitle={location.heroSubtitle}
+        imageSrc={location.heroImage}
       />
 
       <TrustBar items={location.trustItems.map((t) => `⚡ ${t}`)} />

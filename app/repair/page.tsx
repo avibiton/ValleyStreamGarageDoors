@@ -122,6 +122,7 @@ export default function RepairPage() {
         badge="Same-Day Emergency Service"
         h1="Garage Door Repair in Valley Stream, NY — Same Day"
         subtitle="Broken torsion spring, off-track door, broken overhead cable, cable drum replacement — One Stop Garage Door & Opener fixes it same day throughout Valley Stream NY 11580, 11581 and all Five Towns."
+        imageSrc="https://images.unsplash.com/photo-1637640125496-31852f042a60?auto=format&fit=crop&w=1920&q=80"
       />
 
       <TrustBar
