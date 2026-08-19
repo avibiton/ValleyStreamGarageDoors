@@ -80,11 +80,12 @@ export default function HomePage() {
         style={{
           backgroundImage: [
             "linear-gradient(to bottom, rgba(10,10,10,0.60) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.85) 100%)",
-            "repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.045) 79px, rgba(255,255,255,0.045) 80px)",
-            "repeating-linear-gradient(90deg, transparent, transparent 239px, rgba(255,255,255,0.025) 239px, rgba(255,255,255,0.025) 240px)",
+            "linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.20) 50%, rgba(10,10,10,0.80) 100%)",
+            "url('/images/hero-garage-door.svg')",
           ].join(", "),
-          backgroundSize: "auto, 240px 80px, 240px 80px",
-          backgroundRepeat: "repeat",
+          backgroundSize: "auto, cover",
+          backgroundPosition: "center, center",
+          backgroundRepeat: "no-repeat, no-repeat",
           backgroundColor: "#111111",
         }}
       >
