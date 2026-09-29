@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 interface FAQItem {
   question: string;
@@ -13,6 +13,7 @@ interface FAQAccordionProps {
 
 export function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const baseId = useId();
 
   return (
     <div className="space-y-2">
@@ -21,6 +22,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           <button
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             aria-expanded={openIndex === i}
+            aria-controls={`${baseId}-answer-${i}`}
             className="w-full text-left flex items-center justify-between gap-4 px-5 py-4 bg-white hover:bg-brand-light transition-colors font-display font-bold text-brand-black text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-inset focus:ring-brand-red"
           >
             <span className="flex-1">{item.question}</span>
@@ -33,11 +35,14 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
               ▼
             </span>
           </button>
-          {openIndex === i && (
-            <div className="px-5 py-4 bg-white border-t border-gray-100">
-              <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
-            </div>
-          )}
+          {/* Always rendered so every answer is in the server HTML; closed answers are hidden. */}
+          <div
+            id={`${baseId}-answer-${i}`}
+            hidden={openIndex !== i}
+            className="px-5 py-4 bg-white border-t border-gray-100"
+          >
+            <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
+          </div>
         </div>
       ))}
     </div>
