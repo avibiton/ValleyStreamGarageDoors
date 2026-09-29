@@ -178,7 +178,7 @@ export default function WoodmerePage() {
           </p>
 
           <HighlightBox heading="Woodmere Curb Appeal — New Door Installation:">
-            Woodmere's traditional colonial and tudor architecture benefits significantly from a carriage-house or
+            Woodmere&apos;s traditional colonial and tudor architecture benefits significantly from a carriage-house or
             raised-panel garage door upgrade. One Stop Garage Door & Opener carries Clopay Grand Harbour, Amarr
             Heritage, and Wayne Dalton 9700 series — all available with natural-wood-look composite overlays that hold
             up to Five Towns salt air. Use code NEWDOOR250 for $250 off. Free design consultation with every estimate.

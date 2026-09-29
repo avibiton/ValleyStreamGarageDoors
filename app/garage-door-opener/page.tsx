@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { BUSINESS } from "@/lib/constants";
 import { COUPONS } from "@/data/coupons";
 import { JsonLd } from "@/components/seo/JsonLd";
