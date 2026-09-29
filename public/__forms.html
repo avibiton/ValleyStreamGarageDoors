@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <!-- Static form definition so Netlify detects the form at deploy time.
+         The React ServiceRequestForm component POSTs here. -->
+    <form name="service-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="service-request" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="town" />
+      <textarea name="problem"></textarea>
+    </form>
+  </body>
+</html>

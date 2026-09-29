@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CredentialBadges } from "@/components/sections/CredentialBadges";
 import { CTASection } from "@/components/sections/CTASection";
+import { ServiceRequestSection } from "@/components/forms/ServiceRequestSection";
 import { ServiceAreaGrid } from "@/components/sections/ServiceAreaGrid";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 
@@ -303,6 +304,7 @@ export default function HomePage() {
         heading="Need Garage Door Repair in Valley Stream Today?"
         subtext="One Stop Garage Door & Opener — Five Towns Nassau County — Free Written Estimate"
       />
+      <ServiceRequestSection />
     </>
   );
 }

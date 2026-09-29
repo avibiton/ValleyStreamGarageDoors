@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CTASection } from "@/components/sections/CTASection";
+import { ServiceRequestSection } from "@/components/forms/ServiceRequestSection";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { PricingTable } from "@/components/ui/PricingTable";
 import { PartsTags } from "@/components/ui/PartsTags";
@@ -226,6 +227,7 @@ export default function OpenerPage() {
         heading="Opener Service in Valley Stream & Five Towns NY"
         subtext="$99 off new LiftMaster or Genie · Same-day service · Free written estimate"
       />
+      <ServiceRequestSection />
     </>
   );
 }

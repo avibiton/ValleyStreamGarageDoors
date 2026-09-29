@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CTASection } from "@/components/sections/CTASection";
+import { ServiceRequestSection } from "@/components/forms/ServiceRequestSection";
 import { FAQAccordion } from "@/components/faq/FAQAccordion";
 import { PricingTable } from "@/components/ui/PricingTable";
 import { PartsTags } from "@/components/ui/PartsTags";
@@ -239,6 +240,7 @@ export default function InstallationPage() {
         heading="New Garage Door Installation in Valley Stream & Five Towns"
         subtext="$250 off any new door · Free in-home estimate · Written warranty · Clopay · Amarr · Wayne Dalton"
       />
+      <ServiceRequestSection />
     </>
   );
 }
