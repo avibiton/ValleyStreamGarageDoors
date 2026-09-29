@@ -14,9 +14,6 @@ export const BUSINESS = {
   geo: { lat: "40.6637", lng: "-73.7087" },
   hours: "24/7 including evenings & weekends",
   since: "2009",
-  rating: "5.0",
-  reviewCount: "187",
-  googleReviewUrl: "https://g.page/r/one-stop-garage-door-valley-stream/review",
   googleMapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12094.25!2d-73.7087!3d40.6637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c266f0000000001%3A0x0!2sValley%20Stream%2C%20NY%2011580!5e0!3m2!1sen!2sus!4v1720000000000",
 } as const;

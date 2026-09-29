@@ -7,7 +7,6 @@ const DEFAULT_ITEMS = [
   "⚡ Same-Day Dispatch",
   "📝 Free Written Estimate",
   "🛡 Written Warranty",
-  "⭐ 5.0 · 187 Reviews",
 ];
 
 export function TrustBar({ items = DEFAULT_ITEMS }: TrustBarProps) {

@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BUSINESS } from "@/lib/constants";
-import { REVIEWS } from "@/data/reviews";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { CredentialBadges } from "@/components/sections/CredentialBadges";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServiceAreaGrid } from "@/components/sections/ServiceAreaGrid";
-import { ReviewCard } from "@/components/cards/ReviewCard";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 
 export const metadata: Metadata = {
@@ -47,13 +45,6 @@ const localBusinessSchema = {
   ],
   priceRange: "$$",
   openingHours: ["Mo-Su 00:00-23:59"],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "187",
-    bestRating: "5",
-    worstRating: "1",
-  },
 };
 
 const breadcrumbSchema = {
@@ -67,6 +58,29 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 5, name: "FAQ", item: `${BUSINESS.baseUrl}/faq/` },
   ],
 };
+
+const PROMISES = [
+  {
+    icon: "📝",
+    title: "Free Written Estimate",
+    text: "You get a free written estimate before any work begins.",
+  },
+  {
+    icon: "🛡",
+    title: "Full Written Warranty",
+    text: "Every repair includes a full written warranty on parts and labor. If anything is not right after we leave, we return at no charge.",
+  },
+  {
+    icon: "💲",
+    title: "Upfront Starting Prices",
+    text: "Our starting prices are published: torsion spring replacement from $295, broken overhead cable repair from $125.",
+  },
+  {
+    icon: "✅",
+    title: "Safety Tested Before We Leave",
+    text: "We complete a full system inspection and leave only after a safety test confirms everything is working.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -93,9 +107,8 @@ export default function HomePage() {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-20">
           <div className="max-w-2xl">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-amber-400 text-lg tracking-widest">★★★★★</span>
               <span className="text-white/70 text-xs font-semibold">
-                5.0 · Valley Stream NY · Nassau County
+                Valley Stream NY · Nassau County
               </span>
             </div>
 
@@ -197,31 +210,33 @@ export default function HomePage() {
 
       <ServiceAreaGrid />
 
-      {/* Reviews */}
+      {/* Our Promise */}
       <section className="bg-brand-light py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <p className="eyebrow">What Our Customers Say</p>
+          <p className="eyebrow">Our Promise</p>
           <h2 className="font-display font-black text-2xl sm:text-3xl text-brand-black uppercase tracking-wide mb-1">
-            5-Star Reviews — Valley Stream &amp; Five Towns
+            Our Promise to Every Valley Stream &amp; Five Towns Customer
           </h2>
           <div className="brand-divider" />
-          <p className="text-gray-600 text-sm sm:text-base max-w-xl mb-8 leading-relaxed">
-            Real customers, real repairs, real results. One Stop Garage Door &amp; Opener has been serving
-            Valley Stream and Five Towns Nassau County families since 2009.
-          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-            {REVIEWS.map((review, i) => (
-              <ReviewCard key={i} review={review} />
+            {PROMISES.map((item) => (
+              <div key={item.title} className="bg-white rounded border-t-4 border-brand-red shadow-sm p-6">
+                <div className="text-2xl mb-3" aria-hidden="true">
+                  {item.icon}
+                </div>
+                <h3 className="font-display font-bold text-brand-black text-sm uppercase tracking-wide mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+              </div>
             ))}
           </div>
           <div className="text-center">
             <Link
-              href={BUSINESS.googleReviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/faq/"
               className="inline-block bg-brand-black text-brand-gold font-display font-bold uppercase text-sm tracking-wide px-7 py-3.5 rounded border border-brand-gold hover:bg-brand-gold hover:text-white transition-colors"
             >
-              ⭐ Read All Reviews on Google
+              View Full Price List
             </Link>
           </div>
         </div>
@@ -259,14 +274,6 @@ export default function HomePage() {
                   <strong className="text-brand-black">🛡 Warranty</strong> — Written warranty on every repair
                 </div>
               </div>
-              <Link
-                href={BUSINESS.googleReviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-brand-black text-brand-gold font-display font-bold text-sm uppercase tracking-wide px-5 py-3.5 rounded border border-brand-gold hover:bg-brand-gold hover:text-white transition-colors mb-3"
-              >
-                ★★★★★ Read Our 5-Star Reviews on Google
-              </Link>
               <Link
                 href={BUSINESS.phoneHref}
                 className="block text-center bg-brand-red text-white font-display font-bold uppercase text-sm tracking-wide px-5 py-3.5 rounded hover:bg-brand-red-dark transition-colors"
